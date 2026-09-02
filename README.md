@@ -54,5 +54,40 @@
 </tr>
 </table>
 
+## 🎮 Управление
+
+| Клавиша | Действие |
+|---------|----------|
+| **A** | Движение влево |
+| **D** | Движение вправо |
+| **Пробел** | Стрельба |
+| **Закрыть окно** | Выход из игры |
+
+---
+
+## 🛠️ Установка и запуск
+
+### Требования
+- Python 3.11+
+- Pygame 2.6.1
+
+### Установка
+```bash
+# Клонировать репозиторий
+git clone https://github.com/AliceTaran/Alien_invasion.git
+
+# Перейти в папку
+cd Alien_invasion
+
+# Установить зависимости
+pip install pygame
+```
+
+### Запуск
+```bash
+python alian_game/alien_invasion.py
+```
+
+---
 ___
 ![Геймплей](alian_game/images/gameplay.png)
