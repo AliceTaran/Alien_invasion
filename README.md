@@ -89,5 +89,90 @@ python alian_game/alien_invasion.py
 ```
 
 ---
-___
-![Геймплей](alian_game/images/gameplay.png)
+## 📸 Скриншоты
+
+<p align="center">
+  <img src="alian_game/images/gameplay.png" alt="Игровой процесс" width="700">
+  <br>
+  <em>Игровой процесс Alien Invasion</em>
+</p>
+## 💻 Ключевые моменты кода
+
+### Создание армии пришельцев
+```python
+def create_army(screen, inos):
+    """Создание армии с разными типами пришельцев"""
+    ino = Ino(screen)
+    ino_width = ino.rect.width
+    number_ino_x = int((700 - 2 * ino_width) / ino_width)
+    
+    for row_number in range(number_ino_y - 1):
+        for ino_number in range(number_ino_x):
+            # Каждый 3-й пришелец - быстрый
+            if ino_number % 3 == 0:
+                ino = Ino2(screen)  # быстрый тип
+            else:
+                ino = Ino(screen)   # обычный тип
+            # ... размещение на экране
+```
+
+### Ограничение количества пуль
+```python
+MAX_BULLETS = 3  # максимум пуль на экране
+
+if event.key == pygame.K_SPACE:
+    if len(bullets) < MAX_BULLETS:
+        new_bullet = Bullet(screen, tank)
+        bullets.add(new_bullet)
+```
+
+### Система жизней
+```python
+def tank_kill(stats, screen, sc, tank, inos, bullets):
+    if stats.tanks_left > 0:
+        stats.tanks_left -= 1  # потеря жизни
+        # восстановление игры
+    else:
+        stats.run_game = False  # конец игры
+        sys.exit()
+```
+
+### Бесконечные уровни
+```python
+if len(inos) == 0:  # все пришельцы уничтожены
+    bullets.empty()
+    create_army(screen, inos)  # новая волна!
+```
+
+---
+
+## 📁 Структура проекта
+
+```
+Alien_Invasion/
+├── alian_game/
+│   ├── alien_invasion.py    # Главный файл
+│   ├── tank.py              # Класс танка
+│   ├── ino.py               # Класс пришельца
+│   ├── bullet.py            # Класс пули
+│   ├── controls.py          # Управление
+│   ├── stats.py             # Статистика
+│   ├── scores.py            # Очки
+│   ├── images/
+│   │   ├── pushka.png       # Спрайт танка
+│   │   └── i.png            # Спрайт пришельца
+│   └── hightscore.txt       # Файл рекордов
+└── README.md
+```
+
+---
+
+## 🚀 Планы по улучшению
+
+- [ ] Добавить звуковые эффекты
+- [ ] Реализовать боссов на уровнях
+- [ ] Добавить разные типы врагов
+- [ ] Создать меню паузы
+- [ ] Улучшить графику
+
+---
