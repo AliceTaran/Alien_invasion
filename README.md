@@ -96,6 +96,7 @@ python alian_game/alien_invasion.py
   <br>
   <em>Игровой процесс Alien Invasion</em>
 </p>
+
 ## 💻 Ключевые моменты кода
 
 ### Создание армии пришельцев
