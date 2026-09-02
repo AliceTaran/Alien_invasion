@@ -1,4 +1,5 @@
 import pygame
+import os  
 
 class Ino(pygame.sprite.Sprite):
     #Класс одного пришельца#
@@ -7,7 +8,9 @@ class Ino(pygame.sprite.Sprite):
         #Инициализируем и задаём начальную позицию#
         super(Ino, self).__init__()
         self.screen = screen
-        self.image = pygame.image.load('images/i.png')
+        current_dir = os.path.dirname(__file__)
+        image_path = os.path.join(current_dir, 'images', 'i.png')
+        self.image = pygame.image.load(image_path)
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
